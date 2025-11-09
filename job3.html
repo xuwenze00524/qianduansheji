@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>萨克斯社 - 2025春季招新</title>
+    <style>
+        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.8; margin: 0; padding: 0; background-color: #f9f7f5; }
+        .top-btn { position: fixed; bottom: 30px; right: 30px; background: #4169e1; color: white; padding: 12px 20px; border: none; border-radius: 50px; cursor: pointer; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .nav { background: #2c3e50; padding: 20px 50px; }
+        .nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 16px; }
+        .nav a:hover { color: #3498db; }
+        .section { width: 1200px; margin: 50px auto; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin: 30px 0; }
+        td, th { border: 1px solid #ddd; padding: 15px; text-align: center; }
+        th { background: #3498db; color: white; }
+        .music-btn { position: absolute; top: 20px; left: 50px; background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; }
+        img { width: 80%; display: block; margin: 30px auto; border-radius: 8px; cursor: pointer; transition: transform 0.3s; }
+        img:hover { transform: scale(1.02); }
+        embed { display: block; margin: 30px auto; }
+        .form-table { width: 80%; margin: 0 auto; }
+        .form-table td { text-align: left; padding: 12px; }
+        .submit-btn { text-align: center; margin: 30px 0; }
+        .submit-btn input { padding: 12px 30px; margin: 0 10px; border: none; border-radius: 30px; cursor: pointer; }
+        .submit-btn input[type="submit"] { background: #27ae60; color: white; }
+        .submit-btn input[type="reset"] { background: #95a5a6; color: white; }
+    </style>
+</head>
+<body>
+    <!-- 背景音乐按钮 -->
+    <button class="music-btn" onclick="playMusic()">播放萨克斯社主题曲</button>
+    <audio id="bgm" src="sax-theme.mp3" loop>您的浏览器不支持音频播放</audio>
+
+    <!-- 导航栏 -->
+    <div class="nav">
+        <a href="#intro">社团简介</a>
+        <a href="#activity">活动安排</a>
+        <a href="#show">风采展示</a>
+        <a href="#story">社员故事</a>
+        <a href="#apply">在线报名</a>
+    </div>
+
+    <!-- 社团简介 -->
+    <div id="intro" class="section">
+        <h1>萨克斯社 社团简介</h1>
+        <p>萨克斯社成立于2010年，是学校极具影响力的音乐类社团之一，十余年来始终以“传播萨克斯文化，搭建音乐交流平台”为宗旨，致力于为全校萨克斯爱好者提供学习、展示与交友的优质空间。社团现有注册社员150余人，涵盖大一至研究生各个年级，成员来自不同专业背景，却因对萨克斯的热爱汇聚一堂。无论是零基础的音乐小白，还是具备一定演奏经验的进阶玩家，都能在社团中找到属于自己的位置。</p>
+        <p>社团拥有专业的指导老师团队，包括省内知名萨克斯演奏家、音乐学院资深教师，定期为社员提供一对一辅导、集体授课和技巧 workshops。教学内容涵盖古典萨克斯曲目演绎、爵士风格即兴演奏、流行金曲改编等多个方向，同时注重乐理知识、气息控制、指法技巧等基础能力的培养。社团配备专属排练厅，内置多支不同调性的萨克斯乐器（高音、中音、次中音）、专业音响设备和乐谱库，为社员日常练习和排练提供充足保障。</p>
+        <p>除常规教学外，社团积极搭建展示平台，每年举办“萨克斯之夜”专场音乐会、校园快闪表演、音乐沙龙等活动，让社员在实践中提升演奏水平，增强自信心。同时，社团与校外多家音乐机构、其他高校萨克斯社团建立长期合作关系，定期组织交流演出、联合排练、大师课等活动，拓宽社员的音乐视野。十余年来，社团培养了数百名萨克斯爱好者，部分毕业生凭借在社团积累的演奏技能和舞台经验，在音乐行业、文艺团体等领域发光发热，更有多名社员在省级、国家级音乐比赛中斩获佳绩。</p>
+        <p>萨克斯社不仅是一个音乐社团，更是一个温暖的大家庭。在这里，社员们一起排练、一起演出、一起分享音乐的喜悦，结下了深厚的友谊。社团定期组织团建活动，如户外野餐、音乐露营、节日联欢会等，让大家在紧张的学习之余放松身心，感受集体的温暖。无论你是想学习一门新乐器、提升演奏技巧，还是想认识志同道合的朋友、丰富校园生活，萨克斯社都将是你最理想的选择。我们相信，每一个热爱音乐的灵魂都能在萨克斯的旋律中找到共鸣，每一次演奏都能绽放独特的光彩。加入我们，让悠扬的萨克斯声伴随你的校园时光，书写属于你的音乐故事！</p>
+        <button class="top-btn" onclick="window.scrollTo(0,0)">返回顶部</button>
+    </div>
+
+    <!-- 活动安排 -->
+    <div id="activity" class="section">
+        <h1>萨克斯社 2025年春季学期活动安排表</h1>
+        <table>
+            <tr>
+                <<th colspan="4">XX社 2025 年春季学期活动安排表</</th>
+            </tr>
+            <tr>
+                <<th>活动名称</</th>
+                <<th>时间</</th>
+                <<th>地点</</th>
+                <<th>参与对象</</th>
+            </tr>
+            <tr>
+                <td>新成员见面会</td>
+                <td>3月15日 19:00-21:00</td>
+                <td rowspan="2">大学生活动中心302排练厅</td>
+                <td>全体新社员</td>
+            </tr>
+            <tr>
+                <td>萨克斯基础教学公开课</td>
+                <td>3月22日 19:00-21:00</td>
+                <td>新社员及零基础爱好者</td>
+            </tr>
+            <tr>
+                <td rowspan="2">“春日旋律”校园快闪</td>
+                <td>4月10日 12:00-13:00</td>
+                <td>学校食堂门口</td>
+                <td rowspan="2">社团骨干及进阶社员</td>
+            </tr>
+            <tr>
+                <td>4月11日 16:00-17:00</td>
+                <td>图书馆前广场</td>
+            </tr>
+            <tr>
+                <td>萨克斯乐理知识讲座</td>
+                <td>5月8日 19:00-21:00</td>
+                <td>教学楼B301</td>
+                <td>全体社员</td>
+            </tr>
+            <tr>
+                <td>校际萨克斯交流演出</td>
+                <td>5月25日 14:00-16:30</td>
+                <td>本校大礼堂</td>
+                <td>全体社员及外校交流团</td>
+            </tr>
+            <tr>
+                <td>“萨克斯之夜”专场音乐会</td>
+                <td>6月15日 19:00-21:30</td>
+                <td>学校音乐厅</td>
+                <td>全体社员及全校师生</td>
+            </tr>
+        </table>
+        <button class="top-btn" onclick="window.scrollTo(0,0)">返回顶部</button>
+    </div>
+
+    <!-- 风采展示 -->
+    <div id="show" class="section">
+        <h1>风采展示</h1>
+        <p>以下是萨克斯社日常排练及演出的精彩瞬间，点击图片可查看详细活动介绍：</p>
+        <a href="club_intro.html" target="_blank">
+            <img src="sax-club.jpg" alt="萨克斯社日常演奏照片">
+        </a>
+        <p>社团成员在“校园文化艺术节”中的合奏表演获得全校师生一致好评，经典曲目《回家》《茉莉花》的萨克斯改编版更是成为校园内广为流传的旋律。在去年的校际交流活动中，社团骨干与省内多所高校的萨克斯爱好者共同演绎的《蓝色狂想曲》，展现了当代大学生的音乐素养与青春风采。</p>
+        <h2>社团视频展示</h2>
+        <embed src="sax-show.mp4" width="800" height="450" autostart="false">
+        <button class="top-btn" onclick="window.scrollTo(0,0)">返回顶部</button>
+    </div>
+
+    <!-- 社员故事 -->
+    <div id="story" class="section">
+        <h1>社员故事（节选）</h1>
+        <p>我叫林晓，是一名大二的新闻专业学生，加入萨克斯社纯属一次偶然的机会。大一刚入学时，我对大学生活充满迷茫，看着身边同学纷纷加入各种社团，我却不知道自己真正喜欢什么。一次校园文化节上，我偶然听到了萨克斯社的专场演出，当那悠扬、深情的旋律在音乐厅中响起时，我瞬间被深深吸引了。那是我第一次近距离感受萨克斯的魅力，一曲《月亮代表我的心》让我热泪盈眶，也让我萌生了学习萨克斯的念头。</p>
+        <p>加入社团时，我完全是零基础，连萨克斯的基本构造都不了解，甚至吹不出一个完整的音符。刚开始练习时，气息控制不好，吹出来的声音刺耳又难听，我一度想要放弃。但社团的学长学姐们非常耐心，他们从最基础的气息练习、指法教学开始，一步步引导我入门。指导老师也经常鼓励我，告诉我“每一个优秀的演奏者都是从笨拙的练习开始的”。在社团的排练厅里，我每天坚持练习两个小时，虽然过程很枯燥，但每当我能完整吹出一首简单的曲目时，那种成就感是无法用言语形容的。</p>
+        <p>在社团的一年多时间里，我不仅学会了演奏十余首经典曲目，更收获了珍贵的友谊和成长。记得第一次参加校园快闪活动时，我紧张得手心冒汗，甚至忘记了部分指法。是身边的社员们用眼神鼓励我，和我一起完成了表演。那次经历让我变得更加自信，也让我感受到了社团的温暖与力量。现在的我，不仅能在社团的音乐沙龙中自信地独奏，还能和社员们一起合奏复杂的曲目。萨克斯已经成为我生活中不可或缺的一部分，每当我学习压力大、心情烦躁时，吹一吹萨克斯，悠扬的旋律就能让我平静下来。</p>
+        <p>社团的生活也让我认识了一群志同道合的朋友。我们一起在排练厅熬夜排练，一起为了音乐会的成功举办而努力，一起在团建活动中分享喜怒哀乐。记得去年圣诞节，我们在校园里举办了一场小型的音乐派对，用萨克斯为同学们演奏圣诞歌曲，收到了大家的热烈欢迎。那种用音乐传递快乐、分享美好的感觉，让我深深体会到了社团的意义。现在，我已经成为社团的骨干成员，负责指导新社员入门。看着新社员们像当初的我一样，从零基础开始慢慢进步，我感到非常欣慰。</p>
+        <p>萨克斯社不仅教会了我一门乐器，更让我学会了坚持、合作与分享。在这里，我找到了自己的兴趣所在，也找到了属于自己的青春舞台。我相信，无论未来我走到哪里，萨克斯的旋律都会伴随我，社团的友谊都会温暖我。如果你也热爱音乐，如果你也想学习一门有趣的乐器，如果你也想认识一群志同道合的朋友，那就加入萨克斯社吧！这里有专业的指导、温暖的集体、广阔的舞台，等待着你绽放属于自己的光彩。</p>
+        <button class="top-btn" onclick="window.scrollTo(0,0)">返回顶部</button>
+    </div>
+
+    <!-- 在线报名 -->
+    <div id="apply" class="section">
+        <h1>萨克斯社在线报名表</h1>
+        <form action="" method="post">
+            <table class="form-table">
+                <tr>
+                    <td>1. 姓名：</td>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>2. 性别：</td>
+                    <td>
+                        <input type="radio" name="gender" value="男" required>男
+                        <input type="radio" name="gender" value="女">女
+                    </td>
+                </tr>
+                <tr>
+                    <td>3. 出生日期：</td>
+                    <td>
+                        <input type="text" name="year" placeholder="年" required>
+                        <input type="text" name="month" placeholder="月" required>
+                        <input type="text" name="day" placeholder="日" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4. 手机：</td>
+                    <td><input type="text" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td>5. 邮箱：</td>
+                    <td><input type="text" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>6. 是否有萨克斯基础：</td>
+                    <td>
+                        <input type="radio" name="base" value="有" required>有
+                        <input type="radio" name="base" value="无">无
+                    </td>
+                </tr>
+                <tr>
+                    <td>7. 兴趣方向（可多选）：</td>
+                    <td>
+                        <input type="checkbox" name="interest" value="古典萨克斯">古典萨克斯
+                        <input type="checkbox" name="interest" value="爵士萨克斯">爵士萨克斯
+                        <input type="checkbox" name="interest" value="流行萨克斯">流行萨克斯
+                        <input type="checkbox" name="interest" value="合奏表演">合奏表演
+                        <input type="checkbox" name="interest" value="音乐创作">音乐创作
+                    </td>
+                </tr>
+                <tr>
+                    <td>8. 年级：</td>
+                    <td>
+                        <select name="grade" required>
+                            <option value="">请选择年级</option>
+                            <option value="大一">大一</option>
+                            <option value="大二">大二</option>
+                            <option value="大三">大三</option>
+                            <option value="大四">大四</option>
+                            <option value="研究生">研究生</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9. 自我介绍：</td>
+                    <td>
+                        <textarea name="intro" rows="5" cols="50" placeholder="请简单介绍自己、以及加入萨克斯社的理由……" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10. 是否服从活动安排：</td>
+                    <td>
+                        <input type="radio" name="obey" value="是" required>是
+                        <input type="radio" name="obey" value="否">否
+                    </td>
+                </tr>
+            </table>
+            <div class="submit-btn">
+                <input type="submit" value="提交报名">
+                <input type="reset" value="重置表单">
+            </div>
+        </form>
+        <button class="top-btn" onclick="window.scrollTo(0,0)">返回顶部</button>
+    </div>
+
+    <script>
+        function playMusic() {
+            const bgm = document.getElementById("bgm");
+            bgm.play().catch(err => console.log("播放失败：", err));
+        }
+    </script>
+</body>
+</html>
