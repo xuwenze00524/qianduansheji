@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>轻音乐阅读夜 · Soft Music Reading</title>
+    <style>
+        .page {
+            display: inline-block;
+            background-color: #FFE6EE; /* 学号末位4：樱花粉 */
+            box-shadow: 0 0 30px rgba(80, 58, 35, 0.25);
+            text-align: left;
+            max-width: 720px;
+            padding: 25px; /* 增加内边距提升页面呼吸感 */
+        }
+
+        /* 并集选择器：统一所有标题样式 */
+        h1, h2, h3, h4, h5, h6 {
+            color: #8B5A6B;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin-top: 10px;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ID选择器：重要提示强调样式 */
+        p#intro {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #D26983;
+            background-color: #FFF0F5;
+            padding: 12px 15px;
+            border-left: 5px solid #D26983;
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+        }
+
+        /* 后代选择器：div表格中的链接样式 */
+        div table a {
+            text-decoration: none;
+            color: #7A4A5A;
+            font-weight: 500;
+        }
+
+        /* 链接伪类：四种状态差异化设计 */
+        a:link {
+            color: #7A4A5A;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #A67C8E;
+        }
+        a:hover {
+            color: #D26983;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        a:active {
+            color: #B85A77;
+        }
+
+        /* 带类名的链接：红色和蓝色差异化样式 */
+        a.red {
+            color: #D26983;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        a.blue {
+            color: #5A7FA6;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        /* 伪元素：首字母和首行美化 */
+        p::first-letter {
+            font-size: 2em;
+            font-weight: 700;
+            color: #8B5A6B;
+            font-family: "Times New Roman", serif;
+        }
+        div::first-line {
+            line-height: 2;
+            color: #7A4A5A;
+        }
+
+        /* 表格样式优化：提升可读性 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        th, td {
+            border: 1px solid #D9B3C0;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #FFF0F5;
+            color: #8B5A6B;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #FFFAFC; /* 偶数行背景色，提升表格层次感 */
+        }
+
+        /* 底部公告区样式 */
+        .notice {
+            background-color: #FFF0F5;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 6px;
+            border: 1px solid #D9B3C0;
+        }
+
+        /* 普通段落样式：匹配轻音乐温柔氛围 */
+        p {
+            color: #5D4037;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.02em;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- ①顶部标题区 -->
+        <div>
+            <h1>轻音乐阅读夜 · Soft Music Reading</h1>
+        </div>
+
+        <!-- ②活动介绍区 -->
+        <div>
+            <h2 id="intro-title">活动介绍</h2>
+            <p>当轻柔的旋律漫过耳畔，当书页的墨香萦绕鼻尖，属于轻音乐阅读夜的温柔时光便悄悄开始了。我们希望为每一位热爱阅读的人，打造一个远离喧嚣的小角落——在这里，没有急促的脚步声，没有繁杂的消息提示，只有舒缓的钢琴、小提琴曲，与文字一起伴你走进故事的世界。</p>
+            <p>每周四晚上7点至9点，我们会在社团活动室备好暖光台灯、柔软坐垫与各类书籍，从散文诗集到经典小说，从科普读物到治愈绘本，你可以自带喜欢的书，也可以挑选现场的读物。阅读间隙，还能和身边的伙伴轻声交流感悟，让思想在音乐与文字的碰撞中慢慢沉淀。</p>
+            <p id="intro">重要提示：为保证现场氛围，请勿携带外放设备，建议佩戴有线耳机（社团可提供备用耳机）；活动期间请保持轻声交流，让每一位参与者都能沉浸在阅读与音乐的双重治愈中。</p>
+        </div>
+
+        <!-- ③活动报名信息表格区 -->
+        <div>
+            <h3>本期参与成员信息</h3>
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <th>选择书籍类型</th>
+                    <th>阅读状态</th>
+                    <th>偏好音乐风格</th>
+                    <th>报名时间</th>
+                </tr>
+                <tr>
+                    <td>林晓</td>
+                    <td>治愈系散文</td>
+                    <td>松弛中</td>
+                    <td>钢琴独奏</td>
+                    <td>2024-05-10</td>
+                </tr>
+                <tr>
+                    <td>陈宇</td>
+                    <td>科幻小说</td>
+                    <td>专注中</td>
+                    <td>电子轻音乐</td>
+                    <td>2024-05-11</td>
+                </tr>
+                <tr>
+                    <td>苏晚</td>
+                    <td>古典诗词</td>
+                    <td>聆听中</td>
+                    <td>小提琴曲</td>
+                    <td>2024-05-11</td>
+                </tr>
+                <tr>
+                    <td>周然</td>
+                    <td>绘本故事</td>
+                    <td>松弛中</td>
+                    <td>吉他指弹</td>
+                    <td>2024-05-12</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ④页面链接区 -->
+        <div>
+            <h3>更多活动相关</h3>
+            <div>
+                <a href="https://hongchenwusdnu.github.io/bookstore/job4.html" class="red" target="_blank">查看往期活动照片</a>
+                <br><br>
+                <a href="job3.html" class="blue" target="_blank">在线咨询活动详情</a>
+            </div>
+        </div>
+
+        <!-- ⑤底部公告区 -->
+        <div class="notice">
+            <h3>近期公告</h3>
+            <p>1. 本期活动新增「音乐与书籍搭配推荐」环节，现场会为大家分享“哪些书籍适合搭配哪些轻音乐”，欢迎带着你的推荐来交流～<br></p>
+            <p>2. 因社团活动室需进行设备维护，5月23日（周四）的活动将临时调整至学校图书馆3楼阅览室，时间不变（19:00-21:00），请大家提前留意路线～<br></p>
+            <p>3. 招募活动志愿者2名，主要负责现场书籍整理、音乐播放协助，有意向的同学可通过“在线咨询活动详情”链接联系我们，志愿者可优先参与下期特别主题阅读夜～</p>
+        </div>
+    </div>
+</body>
+</html>
