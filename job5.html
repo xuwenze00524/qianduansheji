@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>在线购物折扣系统（学号末位4）</title>
+    <style>
+        body { font-family: "Microsoft YaHei", sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ddd; }
+        .form-group { margin: 15px 0; }
+        label { display: inline-block; width: 120px; font-weight: bold; }
+        input, select { padding: 8px; width: 200px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #tips { margin: 20px 0; padding: 15px; background: #e9f5ff; border-left: 4px solid #007bff; }
+        #clock { font-size: 18px; font-weight: bold; color: #dc3545; margin: 10px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background: #007bff; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>在线购物折扣订单系统</h1>
+        <!-- 模拟时钟区域 -->
+        <div id="clock"></div>
+        
+        <!-- 订单表单 -->
+        <div class="form-group">
+            <label>客户名称：</label>
+            <input type="text" id="customerName" placeholder="请输入客户名称">
+        </div>
+        <div class="form-group">
+            <label>商品单价：</label>
+            <input type="number" id="price" placeholder="请输入大于0的数字">
+        </div>
+        <div class="form-group">
+            <label>购买数量：</label>
+            <input type="number" id="quantity" placeholder="请输入大于0的整数">
+        </div>
+        <div class="form-group">
+            <label>客户类型：</label>
+            <select id="isVip">
+                <option value="false">普通客户</option>
+                <option value="true">VIP客户</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>是否加急：</label>
+            <select id="isUrgent">
+                <option value="false">否</option>
+                <option value="true">是</option>
+            </select>
+        </div>
+        <button onclick="addOrder()">添加订单</button>
+        
+        <!-- 订单计算结果提示 -->
+        <div id="tips"></div>
+        
+        <!-- 成交历史表格 -->
+        <h2>成交历史记录</h2>
+        <table id="dashboard">
+            <thead>
+                <tr>
+                    <th>客户名称</th>
+                    <th>商品单价</th>
+                    <th>购买数量</th>
+                    <th>客户类型</th>
+                    <th>是否加急</th>
+                    <th>最终总价</th>
+                    <th>下单时间</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        // 全局变量：存储订单历史
+        let orderHistory = [];
+
+        // 1. document.write() 提示折扣加价规则（页面加载时执行）
+        document.write('<div style="text-align:center; color:#666; margin:10px 0;">💡 本购物网站：VIP享9折，加急默认加1成费用，每小时前10分钟享85折；普通客户订单金额>500元额外9.5折（学号末位4专属）</div>');
+
+        // 2. 模拟时钟实现（含时段折扣提示）
+        function updateClock() {
+            const now = new Date();
+            const hour = now.getHours().toString().padStart(2, '0');
+            const minute = now.getMinutes().toString().padStart(2, '0');
+            const second = now.getSeconds().toString().padStart(2, '0');
+            const week = ['日', '一', '二', '三', '四', '五', '六'][now.getDay()];
+            const date = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
+            
+            // 时钟显示内容
+            let clockText = `${date} 星期${week} ${hour}:${minute}:${second}`;
+            // 时段折扣判断（基础规则：前10分钟85折）
+            if (now.getMinutes() < 10) {
+                clockText += ' | 🎉 当前时段享85折优惠！';
+            } else {
+                clockText += ' | ⏰ 当前时段无额外折扣';
+            }
+            document.getElementById('clock').innerText = clockText;
+        }
+        // 初始化时钟并每秒更新
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // 3. 表单数据校验函数
+        function validateForm(customerName, price, quantity) {
+            // 校验客户名称非空
+            if (!customerName.trim()) {
+                alert('客户名称不能为空！');
+                return false;
+            }
+            // 校验商品单价：大于0的数字
+            if (isNaN(price) || price <= 0) {
+                alert('商品单价必须是大于0的数字！');
+                return false;
+            }
+            // 校验数量：大于0的整数
+            if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
+                alert('购买数量必须是大于0的整数！');
+                return false;
+            }
+            return true;
+        }
+
+        // 4. 添加订单核心函数（含学号末位4的折扣逻辑）
+        function addOrder() {
+            // 1. 获取表单数据
+            const customerName = document.getElementById('customerName').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const isVip = document.getElementById('isVip').value === 'true';
+            const isUrgent = document.getElementById('isUrgent').value === 'true';
+            const now = new Date();
+            const minute = now.getMinutes();
+
+            // 2. 数据校验
+            if (!validateForm(customerName, price, quantity)) {
+                return;
+            }
+
+            // 3. 折扣/加价计算
+            let baseTotal = price * quantity; // 基础总价
+            let afterVip = baseTotal;
+            let afterUrgent = baseTotal;
+            let finalTotal = baseTotal;
+            let hitTimeDiscount = false; // 是否命中时段折扣
+
+            // VIP折扣（9折）
+            if (isVip) {
+                afterVip = baseTotal * 0.9;
+            }
+
+            // 加急费用（基础规则：加1成）
+            afterUrgent = afterVip;
+            if (isUrgent) {
+                afterUrgent = afterVip * 1.1;
+            }
+
+            // 时段折扣（基础规则：前10分钟85折）
+            if (minute < 10) {
+                hitTimeDiscount = true;
+                finalTotal = afterUrgent * 0.85;
+            } else {
+                finalTotal = afterUrgent;
+            }
+
+            // --------------------------
+            // 学号末位4专属规则：非VIP + 通用折扣后金额>500元 → 额外9.5折
+            // --------------------------
+            if (!isVip && finalTotal > 500) {
+                finalTotal = finalTotal * 0.95;
+                // 提示信息追加（可选，增强用户感知）
+                document.getElementById('tips').setAttribute('data-rule4', '已触发学号末位4规则：普通客户订单>500元额外9.5折');
+            }
+
+            // 保留2位小数（金额规范）
+            baseTotal = baseTotal.toFixed(2);
+            afterVip = afterVip.toFixed(2);
+            afterUrgent = afterUrgent.toFixed(2);
+            finalTotal = finalTotal.toFixed(2);
+
+            // 4. 拼接提示信息并展示
+            let tipsHtml = `
+                <p>客户名称：${customerName}</p>
+                <p>基础总价（单价×数量）：¥${baseTotal}</p>
+                <p>VIP折扣后价格：¥${afterVip}</p>
+                <p>加急费用后价格：¥${afterUrgent}</p>
+                <p>时段折扣：${hitTimeDiscount ? '享85折' : '无'}</p>
+                ${!isVip && parseFloat(finalTotal) > 500 ? '<p>✅ 学号专属优惠：普通客户订单>500元，额外9.5折</p>' : ''}
+                <p>最终总价：¥${finalTotal}</p>
+            `;
+            document.getElementById('tips').innerHTML = tipsHtml;
+
+            // 5. 保存订单到历史记录
+            const order = {
+                customerName,
+                price: price.toFixed(2),
+                quantity,
+                isVip: isVip ? 'VIP客户' : '普通客户',
+                isUrgent: isUrgent ? '是' : '否',
+                finalTotal,
+                time: `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+            };
+            orderHistory.push(order);
+
+            // 6. 渲染成交历史表格
+            renderDashboard();
+
+            // 清空表单（优化体验）
+            document.getElementById('customerName').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('quantity').value = '';
+        }
+
+        // 5. 渲染成交历史表格
+        function renderDashboard() {
+            const tbody = document.querySelector('#dashboard tbody');
+            // 清空原有内容
+            tbody.innerHTML = '';
+            // 遍历订单历史，逐行添加
+            orderHistory.forEach(order => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${order.customerName}</td>
+                    <td>¥${order.price}</td>
+                    <td>${order.quantity}</td>
+                    <td>${order.isVip}</td>
+                    <td>${order.isUrgent}</td>
+                    <td>¥${order.finalTotal}</td>
+                    <td>${order.time}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
+
